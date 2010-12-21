@@ -6,10 +6,10 @@ Rectangle {
     width: 360
     height: 360
     id: main
-    function deal() {        
+    function deal(tgtx, tgty) {
         var o = sgen.deal()
-        var tgtx  = Math.random() * main.width
-        var tgty = Math.random() * main.height
+        //var tgtx  = Math.random() * main.width
+        //var tgty = Math.random() * main.height
         exp.tgt = o
         exp.tx = tgtx
         exp.ty = tgty
@@ -36,7 +36,8 @@ Rectangle {
     MouseArea {
         anchors.fill: parent
         onClicked: {
-            deal()
+            deal(mouseX- 30 , mouseY- 20)
+
             //Qt.quit();
         }
     }
