@@ -22,13 +22,11 @@ Rectangle {
 
     }
 
-    Text {
-        anchors.centerIn: parent
-        text: "Hello World"
-    }
-    LabelStone {
-        anchors.centerIn: parent
-        text : "mstone"
+    Image {
+        fillMode: Image.Tile
+        anchors.fill: parent
+
+        source: "pic/marble-table.jpg"
     }
 
     StoneGen {

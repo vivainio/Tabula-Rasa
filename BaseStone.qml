@@ -1,6 +1,6 @@
 import Qt 4.7
 
-Rectangle {
+Item {
     id: rr
     width: 60
     height: 40
