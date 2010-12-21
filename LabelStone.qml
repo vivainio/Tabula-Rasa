@@ -18,15 +18,5 @@ Rectangle {
         anchors.fill: parent
         drag.target: rr
     }
-    states: [
-        State {
-            name: "shown"
-            PropertyChanges {
-                target: rr
-                x: txtx
-                y: tgty
-            }
-        }
-    ]
 
 }

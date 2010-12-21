@@ -1,23 +1,19 @@
 import Qt 4.7
 
+import Qt.labs.folderlistmodel 1.0
+
 Rectangle {
     width: 360
     height: 360
     id: main
-    function deal() {
-        var c
-        c = Qt.createComponent("LabelStone.qml")
-        var o = c.createObject(main)
-        o.x = -100
-        o.y = -100
-        o.text = "hello"
+    function deal() {        
+        var o = sgen.deal()
         var tgtx  = Math.random() * main.width
         var tgty = Math.random() * main.height
         exp.tgt = o
         exp.tx = tgtx
         exp.ty = tgty
         exp.start()
-
 
     }
 
@@ -33,6 +29,10 @@ Rectangle {
     LabelStone {
         anchors.centerIn: parent
         text : "mstone"
+    }
+
+    StoneGen {
+        id: sgen
     }
 
     MouseArea {
