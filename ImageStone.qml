@@ -12,4 +12,10 @@ BaseStone {
         id: img
         anchors.centerIn: parent
     }
+
+    function configure(cfg) {
+        // imagestone has img url in "img"
+        img.source = cfg['img']
+
+    }
 }

@@ -10,4 +10,15 @@ QtObject {
         "Runic_letter_uruz.svg"
 
     ]
+
+    function getAll() {
+        var res = []
+        for (var i in fileList) {
+            res.push( { 'img' : "sets/futhark/" + fileList[i] } )
+        }
+
+        return res
+    }
+
+
 }
