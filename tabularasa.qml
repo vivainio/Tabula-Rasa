@@ -6,6 +6,17 @@ Rectangle {
     width: 360
     height: 360
     id: main
+
+    function startup() {
+        sgen.selectSet("sets/futhark")
+
+    }
+    Component.onCompleted: {
+        startup()
+
+    }
+
+
     function deal(tgtx, tgty) {
         var o = sgen.deal()
         //var tgtx  = Math.random() * main.width
@@ -36,8 +47,7 @@ Rectangle {
     MouseArea {
         anchors.fill: parent
         onClicked: {
-            deal(mouseX- 30 , mouseY- 20)
-
+            deal(mouseX- 30 , mouseY- 15)
             //Qt.quit();
         }
     }
