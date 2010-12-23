@@ -32,7 +32,6 @@ QtObject {
         if (!card)
             return null
 
-        var img = "sets/futhark/Runic_letter_haglaz.svg"
         var c = Qt.createComponent(cat.stoneType)
         var o = c.createObject(main)
         console.log("card ",card)
