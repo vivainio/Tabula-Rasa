@@ -26,12 +26,15 @@ QtObject {
 
 
     function deal() {
-        var img = "sets/futhark/Runic_letter_haglaz.svg"
-        var c = Qt.createComponent(cat.stoneType)
-        var o = c.createObject(main)
         var deck = E.priv("StoneGen").deck
         console.log("deck is", deck)
         var card = deck.pop()
+        if (!card)
+            return null
+
+        var img = "sets/futhark/Runic_letter_haglaz.svg"
+        var c = Qt.createComponent(cat.stoneType)
+        var o = c.createObject(main)
         console.log("card ",card)
         o.configure(card)
         o.x = -100

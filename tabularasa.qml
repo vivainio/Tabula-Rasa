@@ -21,6 +21,8 @@ Rectangle {
         var o = sgen.deal()
         //var tgtx  = Math.random() * main.width
         //var tgty = Math.random() * main.height
+        if (!o)
+            return
         exp.tgt = o
         exp.tx = tgtx
         exp.ty = tgty
