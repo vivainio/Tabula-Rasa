@@ -14,4 +14,14 @@ Item {
         text: "Name"
     }
 
+    Image {
+        id: image1
+        sourceSize.width: 100
+        anchors.left: tName.left
+        anchors.leftMargin: 0
+        anchors.top: tName.bottom
+        anchors.topMargin: 1
+        source: "pic/scroll.png"
+    }
+
 }
