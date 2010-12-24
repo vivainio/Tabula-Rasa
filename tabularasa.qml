@@ -80,13 +80,19 @@ Rectangle {
                 }
             }
 
-
-
         }
     }
 
     StoneGen {
         id: sgen
+        onStoneClicked: {
+            console.log("stoneclicked ", stone)
+            if (main.state == "insight") {
+                sdesc.tgt = stone
+                sdesc.nameText = stone.cfg['name']
+
+            }
+        }
     }
 
     StoneDesc {
@@ -104,6 +110,7 @@ Rectangle {
     states: [
         State {
             name: "insight"
+
             //PropertyChanges {
             //    target: name
 

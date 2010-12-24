@@ -1,6 +1,8 @@
 import Qt 4.7
 
 BaseStone {
+    id: rr
+
     property alias imageUrl : img.source
 
     width: bg.width
@@ -19,6 +21,7 @@ BaseStone {
 
     function configure(cfg) {
         // imagestone has img url in "img"
+        rr.cfg = cfg
         img.source = cfg['img']
 
     }

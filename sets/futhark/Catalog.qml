@@ -20,7 +20,15 @@ QtObject {
     function getAll() {
         var res = []
         for (var i in fileList) {
-            res.push( { 'img' : "sets/futhark/" + fileList[i] } )
+            var fn =  String(fileList[i])
+            var o = {
+
+                'img' : "sets/futhark/" + fn,
+                'name' : fn.substring("Runic_letter_".length, fn.length - 4)
+
+
+            }
+            res.push( o )
         }
 
         return res

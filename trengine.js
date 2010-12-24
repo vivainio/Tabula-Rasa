@@ -3,7 +3,11 @@
 var _privs = {}
 
 
+// only works will with qml objects
 function priv(key) {
+    var s = ""
+    var h = key.toString()
+    //console.log("hash",h)
     var o = _privs[key]
     if (!o) {
         o = {}
@@ -11,6 +15,5 @@ function priv(key) {
     }
     return o
 }
-
 
 
