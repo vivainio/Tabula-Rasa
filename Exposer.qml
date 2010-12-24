@@ -1,6 +1,7 @@
 import Qt 4.7
 
 ParallelAnimation {
+    id: self
     property Item tgt
     property int tx
     property int ty
@@ -8,24 +9,18 @@ ParallelAnimation {
     running: false
 
     PropertyAnimation {
-        target: tgt
+        target: tgt || null
         property: "x"
-        to: tx
+        to:tgt ? tx - tgt.width/2 : 0
 
     }
 
     PropertyAnimation {
-        target: tgt
+        target: tgt || null
         property: "y"
-        to: ty
+        to: tgt ? ty - tgt.height / 2 : 0
 
     }
-
-
-
-
-
-
 
 
 

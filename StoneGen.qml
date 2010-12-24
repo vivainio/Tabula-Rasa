@@ -15,10 +15,10 @@ QtObject {
         cat = c.createObject(root)
         var de = cat.getAll()
         E.priv("StoneGen").deck = de
-        console.log("all =", de)
+        //console.log("all =", de)
         for (var i in cat.fileList) {
             var v = cat.fileList[i]
-            console.log("have " + v)
+            //console.log("have " + v)
         }
 
 
@@ -27,7 +27,7 @@ QtObject {
 
     function deal() {
         var deck = E.priv("StoneGen").deck
-        console.log("deck is", deck)
+        //console.log("deck is", deck)
         var card = deck.pop()
         if (!card)
             return null

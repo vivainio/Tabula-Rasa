@@ -3,8 +3,8 @@ import Qt 4.7
 import Qt.labs.folderlistmodel 1.0
 
 Rectangle {
-    width: 360
-    height: 360
+    width: 800
+    height: 480
     id: main
 
     function startup() {
@@ -27,11 +27,14 @@ Rectangle {
         exp.tx = tgtx
         exp.ty = tgty
         exp.start()
+        sdesc.tgt = o
+        sdesc.nameText = o.getDesc()
 
     }
 
+
     Exposer {
-        id: exp
+        id: exp        
 
     }
 
@@ -41,16 +44,72 @@ Rectangle {
 
         source: "pic/marble-table.jpg"
     }
+    MouseArea {
+        anchors.fill: parent
+        onClicked: {
+            if (main.state == "") {
+                deal(mouseX, mouseY)
+            }
+            //Qt.quit();
+        }
+    }
+
+
+    Image {
+        id: imgInsight
+        anchors {
+            right: parent.right
+            bottom: parent.bottom
+        }
+
+        sourceSize {
+            width: 64
+            height: 64
+        }
+
+        source: "pic/scroll.png"
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                if (main.state == "") {
+                    console.log("insight mode")
+                    main.state = "insight"
+                } else {
+                    main.state = ""
+                }
+            }
+
+
+
+        }
+    }
 
     StoneGen {
         id: sgen
     }
 
-    MouseArea {
-        anchors.fill: parent
-        onClicked: {
-            deal(mouseX- 30 , mouseY- 15)
-            //Qt.quit();
-        }
+    StoneDesc {
+        id: sdesc
+        property Item tgt
+
+        visible: tgt ? true : false
+
+        anchors.left: tgt ? tgt.right : undefined
+        anchors.top:  tgt ? tgt.top : undefined
+        width: 400
+
     }
+
+    states: [
+        State {
+            name: "insight"
+            //PropertyChanges {
+            //    target: name
+
+            //}
+        }
+    ]
+
+
 }
