@@ -3,6 +3,9 @@ import Qt 4.7
 Item {
     id : rr
     property alias nameText: tName.text
+
+    signal extraInsightRequest()
+
     width: 200
     height: 100
     Text {
@@ -22,6 +25,10 @@ Item {
         anchors.top: tName.bottom
         anchors.topMargin: 1
         source: "pic/scroll.png"
+        MouseArea {
+            anchors.fill: parent
+            onClicked: rr.extraInsightRequest()
+        }
     }
 
 }

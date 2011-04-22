@@ -17,15 +17,26 @@ QtObject {
 'Runic_letter_thurisaz.svg', 'Runic_letter_tiwaz.svg',
 'Runic_letter_uruz.svg', 'Runic_letter_wunjo.svg']
 
+    property variant descMap: [12]
+                                 // 'algiz' : "http://en.wikipedia.org/wiki/Algiz"
+                              //}
+
+
     function getAll() {
+
+        var descMap = {
+            'algiz' : "http://en.wikipedia.org/wiki/Algiz"
+        }
+
         var res = []
         for (var i in fileList) {
             var fn =  String(fileList[i])
+            var name = fn.substring("Runic_letter_".length, fn.length - 4)
             var o = {
 
                 'img' : "sets/futhark/" + fn,
-                'name' : fn.substring("Runic_letter_".length, fn.length - 4)
-
+                'name' : name,
+                'descUrl' : "http://en.wikipedia.org/wiki/" + name
 
             }
             res.push( o )

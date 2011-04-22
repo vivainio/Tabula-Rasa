@@ -19,6 +19,7 @@ Rectangle {
 
     function deal(tgtx, tgty) {
         var o = sgen.deal()
+
         //var tgtx  = Math.random() * main.width
         //var tgty = Math.random() * main.height
         if (!o)
@@ -99,11 +100,34 @@ Rectangle {
         id: sdesc
         property Item tgt
 
-        visible: tgt ? true : false
+
+        visible: tgt && main.state == "insight" ? true : false
 
         anchors.left: tgt ? tgt.right : undefined
         anchors.top:  tgt ? tgt.top : undefined
         width: 400
+
+        onExtraInsightRequest: {
+            main.state = "detail"
+            console.log("Need extra for ", tgt, " - ",tgt.cfg)
+            var url = tgt.cfg.descUrl
+            insightDetail.url = url
+
+
+        }
+
+    }
+
+    FlickableWebView {
+        id: insightDetail
+        //width: main.width
+        width: main.width
+        height: main.height
+        x: 1000
+        y: 0
+        z: 100
+        //y: -1000
+        url: "http://en.wikipedia.org/wiki/Haglaz"
 
     }
 
@@ -115,7 +139,22 @@ Rectangle {
             //    target: name
 
             //}
-        }
+        },
+        State {
+            name: "detail"
+            PropertyChanges {
+                target: insightDetail
+                x: 0
+
+            }
+            //PropertyChanges {
+            //    target: main
+            //    x: 1000
+            //}
+
+
+}
+
     ]
 
 
